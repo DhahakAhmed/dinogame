@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body id="t" class="offline">
+    <div id="full-area">
+        <div id="game-area" style="height: 250px;">
+            <div id="form">
+                <form action="./login.php" method="POST" id="loginForm">
+                    <input class="pixel-btn" required type="text" name="username" placeholder="Username"><br>
+                    <input class="pixel-btn" required type="password" name="password" placeholder="Password"> <br>
+                    <button class="pixel-btn">LOGIN</button>
+                    <p>OR</p>
+                    <div id="divBtn" class="pixel-btn" onclick="$('#loginForm').hide();$('#createAccountForm').fadeIn(300)">CREATE AN ACCOUNT</div>
+                </form>
+                <form action="./createAccount.php" method="POST" id="createAccountForm" style="display:none">
+                    <input class="pixel-btn" required type="text" name="wallet" placeholder="Wallet Address"><br>
+                    <input class="pixel-btn" required type="password" name="password" id="password" placeholder="Password" oninput="checkPass()"> <br>
+                    <input class="pixel-btn" required type="password" name="password2" id="password2" placeholder="Confirm Password"  oninput="checkPass()"> <br>
+                    <button class="pixel-btn">CREATE ACCOUNT</button>
+                    <p>OR</p>
+                    <div id="divBtn" class="pixel-btn" onclick="$('#createAccountForm').hide();$('#loginForm').fadeIn(300)">LOGIN</div>
+                </form>
+                <button class="pixel-btn" onclick="connect_unisat()">UNISAT WALLET</button> 
+            </div>
+
+        </div>
+    </div>
+</body>
+    <script src="../lib/devhk.js"></script>
+    <script>
+        
+if (typeof window.unisat !== 'undefined') {
+    console.log('UniSat Wallet is installed!');
+   requestWallet()
+  }
+
+  async function connect_unisat(){
+    if( typeof window.unisat !== 'undefined' ){
+        try {
+            let accounts = await window.unisat.requestAccounts();
+            console.log(accounts[0])
+            window.location = './unisat.php?a='+accounts[0]
+        } catch (e) {
+            alert('Failed to connect your Unisat Wallet! Try again later.')
+        }
+    }
+    else{
+        alert("Unisat Wallet Extension is not installed. https://unisat.io/download")
+    }
+    }
+    </script>
+       <script>
+        let checkPass = () => {
+            if ( $("#password").val() != $("#password2").val()){
+                $("#password").css({"border-color":"red"})
+                $("#password2").css({"border-color":"red"})
+                $("#createAccountForm").attr('onsubmit','return false;');
+            }
+            else{
+                $("#password").css({"border-color":"rgba(171, 171, 171, 0.52)"})
+                $("#password2").css({"border-color":"rgba(171, 171, 171, 0.52)"})
+                $("#createAccountForm").attr('onsubmit','return true;');
+            }
+        }
+    </script>
+</html>

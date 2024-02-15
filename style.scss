@@ -1,0 +1,562 @@
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+    height: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    height: 7px;
+    border-radius: 100px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.857);
+    border-radius: 100px;
+  }
+  
+.pixel-btn { font-size: 25px; color: white; height: auto; margin: 0px; font-family: 'VT323'; position: relative; display: inline-block; vertical-align: top; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .pixel-btn:active { top: 2px; } .pixel-btn { position: relative; display: block; margin: 0px; font-family: 'VT323'; font-size: 25px; color: white; } .pixel-btn::before { content: ""; display: block; position: absolute; top: 10px; bottom: 10px; left: -10px; right: -10px; background: black; z-index: -1; } .pixel-btn::after { content: ""; display: block; position: absolute; top: 4px; bottom: 4px; left: -6px; right: -6px; background: black; z-index: -1; } .pixel-btn { padding: 0px 10px; position: relative; background: black; width: auto; z-index: 2; }
+.pixel-btn2 { font-size: 25px; color: black; height: auto; margin: 0px; font-family: 'VT323'; position: relative; display: inline-block; vertical-align: top; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .pixel-btn2:active { top: 2px; } .pixel-btn2 { position: relative; display: block; margin: 0px; font-family: 'VT323'; font-size: 25px; color: black; } .pixel-btn2::before { content: ""; display: block; position: absolute; top: 10px; bottom: 10px; left: -10px; right: -10px; background: white; z-index: -1; } .pixel-btn2::after { content: ""; display: block; position: absolute; top: 4px; bottom: 4px; left: -6px; right: -6px; background: white; z-index: -1; } .pixel-btn2 { padding: 0px 10px; position: relative; background: white; width: auto; z-index: 2; }
+@font-face {
+    font-family: f;
+    src: url('./media/VT323-Regular.ttf');
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#full-area{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    user-select: none;
+    overflow: hidden;
+    font-family: f;
+    color:black;
+    background: url('./media/bg.png')   white;;
+    #profile-icon{
+        width: 50px;
+        height: 50px;
+        margin: 20px;
+        position: absolute;
+        padding: 5px;
+        z-index: 9;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.575);
+        &:hover{
+            opacity: .8;
+        }
+    }
+    #web3-popup,#tournament-fees-popup{
+        width: 100%;
+        height: 100%;
+        // background: #00000098;
+        z-index: 999;
+        position: absolute;
+        .content{
+            width: 500px;
+            min-height: 100px;
+            height: auto;
+            background: linear-gradient(#000000ed,#000000e5);
+            position: absolute;
+            color:white;
+            padding: 20px;
+            left:20px;
+            top:97px;
+            transform-origin: left top;
+            border-radius: 3px;
+            border: 5px inset rgba(255, 255, 255, 0.887);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
+            .arrow-up {
+                width: 0; 
+                height: 0; 
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                position: absolute;
+                border-bottom: 15px solid #999999ef;
+                top:-20px;
+                left:15px;
+              }
+              
+            #header{
+                width: 100%;
+                display: flex;
+                svg{
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                    z-index: 2;
+                }
+                p{
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                    top:-20px;
+                    left:0;
+                    font-size: 40px;
+                }
+            }
+            #total-available{
+                border: 2px dashed white;
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                padding: 10px 30px;
+                height: 110px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                width: 50%;
+                p{
+                    font-size: 40px;
+                    text-align: center;
+                    margin-top: 0px;
+                    text-wrap: nowrap;
+                }
+                h2{
+                    font-size: 50px;
+                    text-align: center;
+                    margin-top: -20px;
+                }
+            }
+            #btns{
+                display: flex;
+                justify-content: space-around;
+                width: 95%;
+                margin: 0 auto;
+                flex-wrap: wrap;
+                left:50%;
+                position: relative;
+                transform: translateX(-50%) ;
+                margin: 0;
+                button{
+                    min-width: 40%;
+                    font-size: 40px;
+                    font-family: f;
+                }
+            }
+            input{
+                font-family: f;
+                display: flex;
+                justify-content: center;
+                margin: 50px auto;
+                width: 90%;
+                font-size: 30px;
+                padding: 10px;
+                outline: none;
+                cursor: text;
+                margin-bottom: 30px;
+            }
+            h6{
+                font-size: 25px;
+                text-align: center;
+                letter-spacing: 1px;
+                user-select: text;
+            }
+            img{
+                width: 350px;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                border-radius: 10px;
+            }
+            #withdraw-address-confirmation{
+                display: flex;
+                border: 2px solid white;
+                height:70px;
+                margin-top: 70px;
+                margin-bottom: 30px;
+                padding: 10px 20px;
+                overflow: hidden;
+                h5{
+                    font-size: 30px;
+                    margin-top: 0px;
+                    color:#666666;
+                }
+                h6{
+                    margin-top: -40px;
+                    overflow: hidden;
+                    user-select: none;
+                }
+                svg{
+                    position: absolute;
+                    left:88%;
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                    z-index: 2;
+                }
+            }
+            #amount-to-withdraw{
+                h5{
+                    margin-top: -20px;
+                    user-select: none;
+                    font-size: 30px;
+                    span{
+                        border: 1px solid #666666;
+                        padding: 0px 15px;
+                        font-size: 25px;
+                        border-radius: 30px;
+                        cursor: pointer;
+                        color: #666666;
+                        &:hover{
+                            color:white;
+                            border-color: white;
+                            transition: .1s;
+                        }
+                    }
+                }
+                div{
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: -30px;
+                    margin-bottom: 40px;
+                    padding: 0 30px;
+                    p{
+                        font-size: 25px;
+                        color:#666666;
+                        margin: 0;
+                        display: flex;
+                        input{
+                            max-width: 135px;
+                            color:white;
+                            margin: 0;
+                            height: 30px;
+                            padding: 0 10px;
+                            text-align: center;
+                            background: transparent;
+                            border: none;
+                            margin-top: -3px;
+                        }
+                    }
+                    svg{
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+    }
+    #tournament-fees-popup{
+        background: #00000098; 
+        .content{
+            left:50%;
+            top:50%;
+            transform:  scale(1.25) translate(-50%,-50%);
+            padding: 30px 10px;
+            p{
+                text-align: center;
+                font-size: 30px;
+                padding: 0 40px;
+                margin-top: 0;
+                span{
+                    color:#666666;
+                }
+            }
+        }
+    }
+    #game-area{
+        width: 700px;
+        height: 310px;
+        left:50%;
+        top:50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        overflow: hidden;
+        //   background: #00000034;
+        text-align: center;
+        padding: 0;
+        #createUsername{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+           form{
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            z-index: 99;
+            width: 95%;
+            max-width: 250px;
+           }
+        }
+        #form{
+            position: relative;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            button,div{
+                font-family: f;
+                margin: 10px 0 ;
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 210px;
+                text-transform: uppercase;
+                border-color: black;
+                border: 2px outset rgba(171, 171, 171, 0.52);
+                padding: 0;
+                opacity: .9;
+            }
+            input{
+                font-family: f;
+                width: 90%;
+                max-width: 190px;
+                font-size: 20px;
+               margin-bottom: -10px;
+                background: white;
+                cursor: text;
+                color:black;
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                outline: none;
+                padding-left: 5px;
+            }
+        }
+        #menu{
+            width: 100%;
+            position: relative;
+            top:50%;
+            transform: translateY(-50%);
+            text-transform: uppercase;
+            // background: #b51616;
+            opacity: .9;
+            margin: 0;
+            #share-btns{
+                display: flex;
+                justify-content: center;
+                img{
+                    width: 30px;
+                    margin: 0 5px;
+                    cursor: pointer;
+                    &:hover{
+                        filter: brightness(1.1);
+                    }
+                }
+            }
+            #menu-imgs{
+                width: 100%;
+                justify-content: center;
+                #logo{
+                   height: 40px;
+                    margin-bottom: 5px;
+                    margin-left: 5px;
+                    margin-top: 10px;
+                }
+                #coin{
+                    height: 60px;
+                    margin-bottom: 5px;
+                    margin-right: 5px;
+                    animation: coinAnim 1.1s infinite;
+                }
+            }
+            h1{
+                margin: 0;
+            }
+            h6{
+                margin: 0;
+                letter-spacing: 1px;
+            }
+            button{
+                font-family: f;
+                margin: 10px 0 ;
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 210px;
+                text-transform: uppercase;
+                border-color: black;
+            }
+        }
+        #leaderboard-section,#tournament-section,#referral-section{
+            width: 100%;
+            h1{
+                margin: 0;
+                text-transform: uppercase;
+            }
+            h6{
+                margin: 0;
+                letter-spacing: 1px;
+            }
+            #players{
+                width: 95%;
+                max-width: 250px;
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                overflow: hidden;
+                overflow-y: auto;
+                height: 120px;
+                padding-right: 5px;
+                margin-top: 10px;
+                .player{
+                    display: flex;
+                    width: 100%;
+                    margin-bottom: -30px;
+                    .player-rank{
+                        width: 10%;
+                        text-align: left;
+                    }
+                    .player-username{
+                        width: 70%;
+                        text-align: left;
+                    }
+                    .player-score{
+                        width: 20%;
+                        text-align: right;
+                    }
+                    &:nth-child(1){
+                        margin-top: -17px;
+                    }
+                }
+            }
+            button{
+                font-family: f;
+                margin: 15px 0 ;
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 210px;
+                text-transform: uppercase;
+                border-color: black;
+            }
+        }
+        #referral-section{
+            #nb-referral{
+                border: 2px dashed black;
+                width: 75px;
+                height: 75px;
+                font-size: 50px;
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                margin-top: 20px;
+                p{
+                    margin: 0;
+                    margin-top:12px;
+                }
+            }
+            #referral-link{
+                div{
+                    margin-top: -20px;
+                    font-size: 11px;
+                    p{
+                        margin-top: 0;
+                    }
+                    svg{
+                        width: 10px;
+                        height: 10px;
+                        margin-top: 20px;
+                        margin-left: 5px;
+                        cursor: pointer;
+                        &:active{
+                            transform: scale(.95);
+                        }
+                    }
+                }
+            }
+        }
+        .not-available{
+            opacity: .3;
+        }
+        .available{
+            opacity: 1;
+        }
+        #exit-btn{
+            font-family: f;
+            margin: 10px 0 ;
+            position: relative;
+            left:50%;
+            width: 90%;
+            max-width: 110px;
+            text-transform: uppercase;
+            border-color: black;
+            opacity: .75;
+            top: 72%;
+            z-index: 22;
+            transform: translateY(-170%) translateX(-50%);
+            display: none;
+            justify-content: center;
+        }
+        #slogan{
+            max-width: 600px;
+            position: relative;
+            left:50%;
+            transform: translateX(-50%) translateY(-200%);
+            top:90%;
+            p{
+                text-align: left;
+                span{
+                    text-decoration: line-through;
+                    // color:red;
+                }
+                &:nth-child(2){
+                    margin-top: -18px;
+                    margin-left: 57px;
+                }
+            }
+        }
+        #messageBox{
+            opacity: .7;
+            display: none;
+        }
+        #leaderboard-btn{
+            position: absolute;
+            left: 50px;
+            top:20px;
+            transform: scale(.7);
+            opacity: .7;
+            padding: 2px 5px;
+            z-index: 999;
+        }
+        canvas{
+            display: none;
+            background: white;
+        }
+    }
+}
+
+#runner-container{
+    position: absolute;
+    top:50%;
+    display: none;
+}
+
+@keyframes coinAnim {
+    0%{
+        transform: rotate(-3deg);
+    }
+    50%{
+        transform: rotate(3deg);
+    }
+    100%{
+        transform: rotate(-3deg);
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.center{
+    width: 100%;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
